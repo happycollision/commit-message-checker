@@ -374,7 +374,7 @@ function getCommitMessagesFromPullRequest(accessToken, repositoryOwner, reposito
         let messages = [];
         if (repository.pullRequest) {
             messages = repository.pullRequest.commits.edges.map(function (edge) {
-                return edge.node.commit.message;
+                return edge.node.commit.message.split('\n\n').at(0);
             });
         }
         return messages;

@@ -296,7 +296,7 @@ async function getCommitMessagesFromPullRequest(
     messages = repository.pullRequest.commits.edges.map(function (
       edge: CommitEdgeItem
     ): string {
-      return edge.node.commit.message
+      return edge.node.commit.message.split('\n\n').at(0)!
     })
   }
 
